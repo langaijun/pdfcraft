@@ -3,7 +3,7 @@
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
-import { Home, Wrench, HelpCircle, FileText, GitBranch } from 'lucide-react';
+import { Home, Wrench, HelpCircle, GitBranch } from 'lucide-react';
 import { type Locale } from '@/lib/i18n/config';
 
 // 动态导入 WorkflowEditor 以避免 SSR 问题（ReactFlow 需要 window 对象）
@@ -82,13 +82,6 @@ export default function WorkflowPageClient({ locale }: WorkflowPageClientProps) 
                     >
                         <Wrench className="w-3.5 h-3.5" />
                         <span className="hidden md:inline">{t('navigation.tools')}</span>
-                    </Link>
-                    <Link
-                        href={`/${locale}/about`}
-                        className="flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-medium text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))] hover:bg-[hsl(var(--color-muted))] rounded-md transition-colors"
-                    >
-                        <FileText className="w-3.5 h-3.5" />
-                        <span className="hidden md:inline">{t('navigation.about')}</span>
                     </Link>
                     <Link
                         href={`/${locale}/faq`}

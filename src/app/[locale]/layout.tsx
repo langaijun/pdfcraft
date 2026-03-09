@@ -2,8 +2,8 @@ import type { Metadata, Viewport } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale, getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
-import { localeConfig, type Locale, locales } from '@/lib/i18n/config';
-import { generateHomeMetadata } from '@/lib/seo';
+import { localeConfig, type Locale, locales, defaultLocale } from '@/lib/i18n/config';
+import { generateToolsListMetadata } from '@/lib/seo';
 import { fontVariables } from '@/lib/fonts';
 import { SkipLink } from '@/components/common/SkipLink';
 import '@/app/globals.css';
@@ -33,15 +33,13 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   // Validate locale
-  const validLocale = locales.includes(locale as Locale) ? (locale as Locale) : 'en';
+  const validLocale = locales.includes(locale as Locale) ? (locale as Locale) : defaultLocale;
 
-  // Get localized SEO translations
   const t = await getTranslations({ locale: validLocale, namespace: 'metadata' });
-
-  // Generate metadata using the SEO module with translations
-  return generateHomeMetadata(validLocale, {
-    title: t('home.title'),
-    description: t('home.description'),
+  // 首页即工具页，使用工具列表的 SEO
+  return generateToolsListMetadata(validLocale, {
+    title: t('tools.title'),
+    description: t('tools.description'),
   });
 }
 

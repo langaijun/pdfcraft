@@ -342,7 +342,6 @@
       "email": {
         "title": "Email",
         "description": "Send us an email and we'll respond within 24-48 hours.",
-        "action": "contact@pdfcraft.app"
       },
       "github": {
         "title": "GitHub",

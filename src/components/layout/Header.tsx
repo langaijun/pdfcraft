@@ -4,7 +4,8 @@ import React, { useState, useCallback, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
-import { Search, Menu, X, Command, Github } from 'lucide-react';
+import { Search, Menu, X, Github } from 'lucide-react';
+import { LanguageSelector } from '@/components/layout/LanguageSelector';
 import { type Locale } from '@/lib/i18n/config';
 import { Button } from '@/components/ui/Button';
 import { RecentFilesDropdown } from '@/components/common/RecentFilesDropdown';
@@ -154,11 +155,10 @@ export const Header: React.FC<HeaderProps> = ({ locale, showSearch = true }) => 
     return icons[category] || '📄';
   };
 
+  // 首页、工作流、常见问题（已去掉关于页）
   const navItems = [
     { href: `/${locale}`, label: t('navigation.home') },
-    { href: `/${locale}/tools`, label: t('navigation.tools') },
     { href: `/${locale}/workflow`, label: t('navigation.workflow') || 'Workflow' },
-    { href: `/${locale}/about`, label: t('navigation.about') },
     { href: `/${locale}/faq`, label: t('navigation.faq') },
   ];
 
@@ -326,8 +326,8 @@ export const Header: React.FC<HeaderProps> = ({ locale, showSearch = true }) => 
               <Github className="h-5 w-5" aria-hidden="true" />
             </a>
 
-            {/* Language Selector placeholder */}
-            <div id="language-selector-slot" />
+            {/* 右上角中英语言切换 */}
+            <LanguageSelector currentLocale={locale} />
 
             {/* Mobile Menu Toggle */}
             <Button

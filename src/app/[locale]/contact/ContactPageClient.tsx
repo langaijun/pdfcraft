@@ -27,13 +27,14 @@ export default function ContactPageClient({ locale }: ContactPageClientProps) {
     message: '',
   });
 
+  const contactEmail = t('methods.email.action'); // admin@xile2026.cn
   const contactMethods = [
     {
       icon: Mail,
       title: t('methods.email.title'),
       description: t('methods.email.description'),
-      action: t('methods.email.action'),
-      href: 'mailto:contact@pdfcraft.gitu.net',
+      action: contactEmail,
+      href: `mailto:${contactEmail}`,
     },
     {
       icon: Github,
@@ -56,14 +57,14 @@ export default function ContactPageClient({ locale }: ContactPageClientProps) {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setFormStatus('submitting');
-
-    // Simulate form submission (in a real app, this would send to an API)
-    await new Promise(resolve => setTimeout(resolve, 1500));
-
-    // For demo purposes, always succeed
+    const subjectKey = formData.subject;
+    const subjectLabel = subjectKey ? t(`form.fields.subject.options.${subjectKey}`) : '';
+    const subject = `${subjectLabel} - ${formData.name}`;
+    const body = `${t('form.fields.message.label')}:\n${formData.message}\n\n---\n${t('form.fields.name.label')}: ${formData.name}\n${t('form.fields.email.label')}: ${formData.email}`;
+    const mailtoUrl = `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoUrl;
     setFormStatus('success');
     setFormData({ name: '', email: '', subject: '', message: '' });
   };

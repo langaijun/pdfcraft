@@ -35,19 +35,10 @@ export {
   type NestedMessages,
 } from './fallback';
 
-// Legacy exports for backward compatibility
-export const SUPPORTED_LOCALES = ['en', 'ja', 'ko', 'es', 'fr', 'de', 'zh', 'zh-TW', 'pt', 'ar', 'it'] as const;
-export const DEFAULT_LOCALE = 'en';
+// Legacy exports for backward compatibility（仅中英）
+export const SUPPORTED_LOCALES = ['zh', 'en'] as const;
+export const DEFAULT_LOCALE = 'zh';
 export const LOCALE_CONFIG = {
   en: { name: 'English', nativeName: 'English', direction: 'ltr' as const },
-  ja: { name: 'Japanese', nativeName: '日本語', direction: 'ltr' as const },
-  ko: { name: 'Korean', nativeName: '한국어', direction: 'ltr' as const },
-  es: { name: 'Spanish', nativeName: 'Español', direction: 'ltr' as const },
-  fr: { name: 'French', nativeName: 'Français', direction: 'ltr' as const },
-  de: { name: 'German', nativeName: 'Deutsch', direction: 'ltr' as const },
-  zh: { name: 'Chinese', nativeName: '中文', direction: 'ltr' as const },
-  'zh-TW': { name: 'Chinese (Traditional)', nativeName: '繁體中文', direction: 'ltr' as const },
-  pt: { name: 'Portuguese', nativeName: 'Português', direction: 'ltr' as const },
-  ar: { name: 'Arabic', nativeName: 'العربية', direction: 'rtl' as const },
-  it: { name: 'Italian', nativeName: 'Italiano', direction: 'ltr' as const },
+  zh: { name: '中文', nativeName: '简体中文', direction: 'ltr' as const },
 };

@@ -30,13 +30,11 @@ export default function FAQPageClient({ locale }: FAQPageClientProps) {
 
   // Helper to get FAQs for a category
   const getCategoryFaqs = (categoryKey: string, categoryLabel: string): FAQItem[] => {
-    const items = ['whatIs', 'isFree', 'account', 'uploaded', 'safe', 'storage', 'operations', 'merge', 'images', 'edit', 'browsers', 'sizeLimit', 'slow', 'offline', 'supported', 'change'];
     const categoryMapping: Record<string, string[]> = {
       'general': ['whatIs', 'isFree', 'account'],
       'privacy': ['uploaded', 'safe', 'storage'],
       'features': ['operations', 'merge', 'images', 'edit'],
       'technical': ['browsers', 'sizeLimit', 'slow', 'offline'],
-      'languages': ['supported', 'change']
     };
 
     const keys = categoryMapping[categoryKey] || [];
@@ -55,17 +53,15 @@ export default function FAQPageClient({ locale }: FAQPageClientProps) {
     ...getCategoryFaqs('privacy', t('categories.privacy')),
     ...getCategoryFaqs('features', t('categories.features')),
     ...getCategoryFaqs('technical', t('categories.technical')),
-    ...getCategoryFaqs('languages', t('categories.languages')),
   ];
 
-  // Get unique categories for filter buttons
+  // Get unique categories for filter buttons（已去掉「语言」分类）
   const categories = [
     { key: 'all', label: t('categories.all') },
     { key: 'general', label: t('categories.general') },
     { key: 'privacy', label: t('categories.privacy') },
     { key: 'features', label: t('categories.features') },
     { key: 'technical', label: t('categories.technical') },
-    { key: 'languages', label: t('categories.languages') },
   ];
 
   // Filter FAQs
