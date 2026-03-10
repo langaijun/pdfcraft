@@ -72,7 +72,8 @@
       "rotateAllLeft": "全部左旋",
       "rotateAllRight": "全部右旋",
       "confirm": "确认",
-      "add": "添加"
+      "add": "添加",
+      "support": "支持"
     },
     "status": {
       "idle": "就绪",
@@ -342,11 +343,6 @@
         "title": "GitHub",
         "description": "报告错误、请求功能或为项目做贡献。",
         "action": "在 GitHub 上查看"
-      },
-      "twitter": {
-        "title": "推特",
-        "description": "关注我们要获取更新和公告。",
-        "action": "@pdfcraft"
       }
     },
     "form": {

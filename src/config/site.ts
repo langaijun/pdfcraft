@@ -7,8 +7,7 @@ export const siteConfig = {
   url: 'https://pdfcraft.devtoolcafe.com',
   ogImage: '/images/og-image.png',
   links: {
-    github: 'https://github.com/PDFCraftTool/pdfcraft',
-    twitter: 'https://twitter.com/pdfcraft',
+    github: 'https://github.com/langaijun/pdfcraft',
   },
   creator: 'PDFCraft Team',
   keywords: [
@@ -27,7 +26,6 @@ export const siteConfig = {
   seo: {
     titleTemplate: '%s | PDFCraft',
     defaultTitle: 'PDFCraft - Professional PDF Tools',
-    twitterHandle: '@pdfcraft',
     locale: 'en_US',
   },
 };

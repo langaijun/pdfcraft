@@ -72,7 +72,8 @@
       "rotateAllLeft": "Rotate All Left",
       "rotateAllRight": "Rotate All Right",
       "confirm": "Confirmar",
-      "add": "Añadir"
+      "add": "Añadir",
+      "support": "Apoyar"
     },
     "status": {
       "idle": "Listo",
@@ -329,11 +330,6 @@
         "title": "GitHub",
         "description": "Reportar errores, solicitar funciones o contribuir al proyecto.",
         "action": "Ver en GitHub"
-      },
-      "twitter": {
-        "title": "Twitter",
-        "description": "Síganos para actualizaciones y anuncios.",
-        "action": "@pdfcraft"
       }
     },
     "form": {

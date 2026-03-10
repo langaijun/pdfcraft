@@ -49,7 +49,7 @@ This extension:
 ## Links
 
 - Website: [pdfcraft.devtoolcafe.com](https://pdfcraft.devtoolcafe.com)
-- GitHub: [github.com/PDFCraftTool/pdfcraft](https://github.com/PDFCraftTool/pdfcraft)
+- GitHub: [github.com/langaijun/pdfcraft](https://github.com/langaijun/pdfcraft)
 
 ## License
 

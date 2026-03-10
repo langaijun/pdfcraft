@@ -211,7 +211,7 @@ To run this project locally, follow these steps:
 
 1.  **Clone the repository**
     ```bash
-    git clone https://github.com/PDFCraftTool/pdfcraft.git
+    git clone https://github.com/langaijun/pdfcraft.git
     cd pdfcraft
     ```
 
@@ -235,58 +235,6 @@ To run this project locally, follow these steps:
 
 4.  **Open your browser**
     Navigate to [http://localhost:3000](http://localhost:3000) to see the application running.
-
-### 🐳 Docker
-
-PDFCraft provides both pre-built Docker images and Docker Compose for flexible deployment options.
-
-#### Option 1: Use Pre-built Image (Recommended)
-
-The easiest way to run PDFCraft is using our pre-built image from GitHub Container Registry:
-
-```bash
-# Pull the latest image
-docker pull ghcr.io/pdfcrafttool/pdfcraft:latest
-
-# Run the container
-docker run -d -p 8080:80 --name pdfcraft ghcr.io/pdfcrafttool/pdfcraft:latest
-```
-
-Open [http://localhost:8080](http://localhost:8080) to access PDFCraft.
-
-**Available tags:**
-| Tag | Description |
-|-----|-------------|
-| `latest` | Latest stable release from main branch |
-| `v1.0.0` | Specific version (semantic versioning) |
-| `sha-abc1234` | Specific commit |
-
-#### Option 2: Build from Source with Docker Compose
-
-If you want to build from source or need to modify the code:
-
-> ⚠️ **Note**: This method requires cloning the repository first.
-
-```bash
-# Clone the repository
-git clone https://github.com/PDFCraftTool/pdfcraft.git
-cd pdfcraft
-
-# Development mode (with hot reload)
-docker compose --profile dev up
-
-# Production mode (static build + Nginx)
-docker compose --profile prod up --build
-```
-
-- Development: [http://localhost:3000](http://localhost:3000)
-- Production: [http://localhost:8080](http://localhost:8080)
-
-To stop containers:
-
-```bash
-docker compose down
-```
 
 ## 📜 Scripts
 
@@ -315,7 +263,6 @@ PDFCraft is configured for static export (`output: 'export'`), which means it ca
    - **Netlify**: `netlify deploy --prod --dir=out`
    - **GitHub Pages**: Push to `main` branch (uses GitHub Actions)
    - **Cloudflare Pages**: `wrangler pages deploy out`
-   - **Docker + Nginx**: `docker compose --profile prod up --build`
 
 ### Deployment Files Included
 
@@ -325,7 +272,7 @@ PDFCraft is configured for static export (`output: 'export'`), which means it ca
 | `netlify.toml` | Netlify |
 | `.github/workflows/deploy.yml` | GitHub Pages |
 | `public/_headers` | Cloudflare Pages / Netlify |
-| `docker-compose.yml` + `nginx.conf` | Docker / Self-hosted |
+| `nginx.conf` | Nginx / Self-hosted |
 | `.htaccess` | Apache |
 
 ### Important Notes

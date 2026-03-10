@@ -72,7 +72,8 @@
       "rotateAllLeft": "Rotate All Left",
       "rotateAllRight": "Rotate All Right",
       "confirm": "確認",
-      "add": "追加"
+      "add": "追加",
+      "support": "サポート"
     },
     "status": {
       "idle": "準備完了",
@@ -304,11 +305,6 @@
           "title": "GitHub",
           "description": "バグの報告、機能のリクエスト、プロジェクトへの貢献はこちら。",
           "action": "GitHubで見る"
-        },
-        "twitter": {
-          "title": "Twitter",
-          "description": "最新情報やお知らせはこちらでフォロー。",
-          "action": "@pdfcraft"
         }
       },
       "form": {
@@ -2332,11 +2328,6 @@
         "title": "GitHub",
         "description": "バグの報告、機能のリクエスト、またはプロジェクトへの貢献を行えます。",
         "action": "GitHubで表示"
-      },
-      "twitter": {
-        "title": "Twitter",
-        "description": "アップデートや告知については、こちらをフォローしてください。",
-        "action": "@pdfcraft"
       }
     },
     "form": {

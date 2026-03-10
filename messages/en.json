@@ -72,7 +72,8 @@
       "rotateAllLeft": "Rotate All Left",
       "rotateAllRight": "Rotate All Right",
       "confirm": "Confirm",
-      "add": "Add"
+      "add": "Add",
+      "support": "Support"
     },
     "status": {
       "idle": "Ready",
@@ -342,16 +343,12 @@
       "email": {
         "title": "Email",
         "description": "Send us an email and we'll respond within 24-48 hours.",
+        "action": "admin@xile2026.cn"
       },
       "github": {
         "title": "GitHub",
         "description": "Report bugs, request features, or contribute to the project.",
         "action": "View on GitHub"
-      },
-      "twitter": {
-        "title": "Twitter",
-        "description": "Follow us for updates and announcements.",
-        "action": "@pdfcraft"
       }
     },
     "form": {

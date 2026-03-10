@@ -8,7 +8,7 @@
  * Solution: After `next build` generates the `out/` directory, this script
  * decompresses all .gz files in out/libreoffice-wasm/ so both versions exist.
  * This ensures compatibility across all deployment platforms:
- * - Docker/Nginx: Uses gzip_static to serve .gz efficiently
+ * - Nginx: Uses gzip_static to serve .gz efficiently
  * - Vercel/Netlify/Cloudflare Pages: Serves the decompressed originals
  * - GitHub Pages: Serves decompressed originals (but lacks COOP/COEP headers)
  */

@@ -72,7 +72,8 @@
       "rotateAllLeft": "Rotate All Left",
       "rotateAllRight": "Rotate All Right",
       "confirm": "확인",
-      "add": "추가"
+      "add": "추가",
+      "support": "후원"
     },
     "status": {
       "idle": "준비됨",
@@ -304,11 +305,6 @@
           "title": "GitHub",
           "description": "버그 신고, 기능 요청 또는 프로젝트 기여.",
           "action": "GitHub에서 보기"
-        },
-        "twitter": {
-          "title": "Twitter",
-          "description": "업데이트 및 공지 사항 팔로우.",
-          "action": "@pdfcraft"
         }
       },
       "form": {
@@ -2332,11 +2328,6 @@
         "title": "GitHub",
         "description": "버그 보고, 기능 요청 또는 프로젝트에 기여하세요.",
         "action": "GitHub에서 보기"
-      },
-      "twitter": {
-        "title": "Twitter",
-        "description": "업데이트 및 공지 사항을 확인하려면 팔로우하세요.",
-        "action": "@pdfcraft"
       }
     },
     "form": {

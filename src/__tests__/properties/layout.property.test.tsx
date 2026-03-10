@@ -82,17 +82,17 @@ describe('Layout Property Tests', () => {
       );
     });
 
-    it('Footer component displays PDFCraft brand name for all locales', () => {
+    it('Footer component displays copyright with brand name for all locales', () => {
       fc.assert(
         fc.property(
           fc.constantFrom(...locales),
           (locale) => {
             const { unmount } = render(<Footer locale={locale} />);
             
-            // Find the brand name in the footer
-            const brandElement = screen.getByTestId('footer-brand-name');
-            expect(brandElement).toBeInTheDocument();
-            expect(brandElement.textContent).toBe('PDFCraft');
+            // Find the copyright in the footer (brand column was removed)
+            const copyrightElement = screen.getByTestId('footer-copyright');
+            expect(copyrightElement).toBeInTheDocument();
+            expect(copyrightElement.textContent).toContain('PDFCraft');
             
             unmount();
             return true;
@@ -113,15 +113,14 @@ describe('Layout Property Tests', () => {
             const headerBrandText = headerBrand.textContent;
             unmountHeader();
             
-            // Render Footer
+            // Render Footer - brand column removed, brand appears in copyright
             const { unmount: unmountFooter } = render(<Footer locale={locale} />);
-            const footerBrand = screen.getByTestId('footer-brand-name');
-            const footerBrandText = footerBrand.textContent;
+            const footerCopyright = screen.getByTestId('footer-copyright');
             unmountFooter();
             
-            // Brand should be consistent
-            expect(headerBrandText).toBe(footerBrandText);
+            // Brand should be in header and in footer copyright
             expect(headerBrandText).toBe('PDFCraft');
+            expect(footerCopyright.textContent).toContain('PDFCraft');
             
             return true;
           }

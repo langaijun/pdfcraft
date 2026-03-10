@@ -72,7 +72,8 @@
       "rotateAllLeft": "Rotate All Left",
       "rotateAllRight": "Rotate All Right",
       "confirm": "Confirmar",
-      "add": "Adicionar"
+      "add": "Adicionar",
+      "support": "Apoiar"
     },
     "status": {
       "idle": "Pronto",
@@ -304,11 +305,6 @@
           "title": "GitHub",
           "description": "Reportar erros, solicitar recursos ou contribuir para o projeto.",
           "action": "Ver no GitHub"
-        },
-        "twitter": {
-          "title": "Twitter",
-          "description": "Siga-nos para atualizações e anúncios.",
-          "action": "@pdfcraft"
         }
       },
       "form": {
@@ -2332,11 +2328,6 @@
         "title": "GitHub",
         "description": "Relate erros, solicite recursos ou contribua para o projeto.",
         "action": "Ver no GitHub"
-      },
-      "twitter": {
-        "title": "Twitter",
-        "description": "Siga-nos para atualizações e anúncios.",
-        "action": "@pdfcraft"
       }
     },
     "form": {

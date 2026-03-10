@@ -4,7 +4,7 @@ import React, { useState, useCallback, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
-import { Search, Menu, X, Github } from 'lucide-react';
+import { Search, Menu, X, Github, Coffee } from 'lucide-react';
 import { LanguageSelector } from '@/components/layout/LanguageSelector';
 import { type Locale } from '@/lib/i18n/config';
 import { Button } from '@/components/ui/Button';
@@ -171,9 +171,9 @@ export const Header: React.FC<HeaderProps> = ({ locale, showSearch = true }) => 
       role="banner"
     >
       <div className="container mx-auto px-4">
-        <div className="flex h-20 items-center justify-between">
+        <div className="flex h-20 items-center justify-between relative">
           {/* Logo and Brand */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 flex-shrink-0">
             <Link
               href={`/${locale}`}
               className="group flex items-center gap-2.5 text-xl font-bold text-[hsl(var(--color-foreground))] hover:opacity-90 transition-opacity"
@@ -199,9 +199,9 @@ export const Header: React.FC<HeaderProps> = ({ locale, showSearch = true }) => 
             </Link>
           </div>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation - centered, font 2/3 larger (text-sm -> text-lg) */}
           <nav
-            className={`hidden md:flex items-center gap-1 rounded-full border border-[hsl(var(--color-border))/0.4] bg-[hsl(var(--color-background))/0.5] p-1.5 backdrop-blur-sm shadow-sm transition-all duration-300 ${isSearchOpen ? 'opacity-0 translate-y-[-10px] pointer-events-none' : 'opacity-100 translate-y-0'
+            className={`hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center gap-1 rounded-full border border-[hsl(var(--color-border))/0.4] bg-[hsl(var(--color-background))/0.5] p-1.5 backdrop-blur-sm shadow-sm transition-all duration-300 ${isSearchOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'
               }`}
             role="navigation"
             aria-label="Main navigation"
@@ -210,7 +210,7 @@ export const Header: React.FC<HeaderProps> = ({ locale, showSearch = true }) => 
               <Link
                 key={item.href}
                 href={item.href}
-                className="px-4 py-1.5 text-sm font-medium text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))] hover:bg-[hsl(var(--color-muted))/0.5] rounded-full transition-all"
+                className="px-5 py-2 text-lg font-medium text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))] hover:bg-[hsl(var(--color-muted))/0.5] rounded-full transition-all"
               >
                 {item.label}
               </Link>
@@ -218,7 +218,7 @@ export const Header: React.FC<HeaderProps> = ({ locale, showSearch = true }) => 
           </nav>
 
           {/* Right side actions */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 flex-shrink-0">
             {/* Search */}
             {showSearch && (
               <div className="relative" ref={searchContainerRef}>
@@ -315,9 +315,21 @@ export const Header: React.FC<HeaderProps> = ({ locale, showSearch = true }) => 
               }}
             />
 
+            {/* Ko-fi Support Button */}
+            <a
+              href="https://ko-fi.com/langaijun"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden sm:flex items-center gap-1.5 h-9 px-3 rounded-lg text-[#29abe0] border border-[#29abe0]/50 hover:bg-[#29abe0]/10 transition-all"
+              aria-label={t('buttons.support') || 'Support us on Ko-fi'}
+            >
+              <Coffee className="h-4 w-4" aria-hidden="true" strokeWidth={2} />
+              <span className="text-sm font-medium">{t('buttons.support') || 'Support'}</span>
+            </a>
+
             {/* GitHub Repository Link */}
             <a
-              href="https://github.com/PDFCraftTool/pdfcraft"
+              href="https://github.com/langaijun/pdfcraft"
               target="_blank"
               rel="noopener noreferrer"
               className="hidden sm:flex items-center justify-center h-9 w-9 rounded-lg text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))] hover:bg-[hsl(var(--color-muted))/0.5] transition-all"
@@ -368,10 +380,23 @@ export const Header: React.FC<HeaderProps> = ({ locale, showSearch = true }) => 
                   </Link>
                 </li>
               ))}
+              {/* Ko-fi Support Link in Mobile Menu */}
+              <li>
+                <a
+                  href="https://ko-fi.com/langaijun"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 px-4 py-3 text-base font-medium text-[#29abe0] hover:bg-[#29abe0]/10 rounded-lg transition-colors"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  <Coffee className="h-5 w-5" aria-hidden="true" strokeWidth={2} />
+                  {t('buttons.support') || 'Support'}
+                </a>
+              </li>
               {/* GitHub Link in Mobile Menu */}
               <li>
                 <a
-                  href="https://github.com/PDFCraftTool/pdfcraft"
+                  href="https://github.com/langaijun/pdfcraft"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 px-4 py-3 text-base font-medium text-[hsl(var(--color-foreground))] hover:bg-[hsl(var(--color-muted))] rounded-lg transition-colors"

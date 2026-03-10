@@ -70,7 +70,7 @@ netlify deploy --prod --dir=out
 
 ### 3. GitHub Pages
 
-> ⚠️ **Limitation:** GitHub Pages does **not** support custom response headers. This means `Cross-Origin-Opener-Policy` and `Cross-Origin-Embedder-Policy` headers cannot be set, so `SharedArrayBuffer` will be unavailable. **Document conversion tools (Word/Excel/PPT/RTF to PDF) that rely on LibreOffice WASM will not work on GitHub Pages.** All other PDF tools (merge, split, compress, etc.) work fine. Use Vercel, Netlify, Cloudflare Pages, or Docker+Nginx for full feature support.
+> ⚠️ **Limitation:** GitHub Pages does **not** support custom response headers. This means `Cross-Origin-Opener-Policy` and `Cross-Origin-Embedder-Policy` headers cannot be set, so `SharedArrayBuffer` will be unavailable. **Document conversion tools (Word/Excel/PPT/RTF to PDF) that rely on LibreOffice WASM will not work on GitHub Pages.** All other PDF tools (merge, split, compress, etc.) work fine. Use Vercel, Netlify, Cloudflare Pages, or Nginx for full feature support.
 
 **Automatic Deployment:**
 1. Enable GitHub Pages in repository settings
@@ -105,30 +105,7 @@ wrangler pages deploy out
 
 ---
 
-### 5. Docker + Nginx (Self-hosted)
-
-The project includes `docker-compose.yml` and `nginx.conf` for containerized deployment.
-
-**Development Mode:**
-```bash
-docker compose --profile dev up
-```
-Open http://localhost:3000
-
-**Production Mode (Static Export + Nginx):**
-```bash
-docker compose --profile prod up --build
-```
-Open http://localhost:8080
-
-**Stop and remove containers:**
-```bash
-docker compose down
-```
-
----
-
-### 6. Nginx (Self-hosted without Docker)
+### 5. Nginx (Self-hosted)
 
 ```bash
 # Build the site
@@ -501,7 +478,6 @@ The raw WASM binary (`soffice.wasm`, ~147MB) exceeds GitHub's 100MB file size li
 |---|---|---|
 | Development (`npm run dev`) | `predev` → `scripts/decompress-wasm-dev.mjs` | `public/libreoffice-wasm/` |
 | Production Build (`npm run build`) | `postbuild` → `scripts/decompress-wasm.mjs` | `out/libreoffice-wasm/` |
-| Docker Build | Dockerfile `RUN gunzip -k` | `/website/pdfcraft/libreoffice-wasm/` |
 
 ### How Each Platform Serves These Files
 
@@ -510,7 +486,7 @@ The converter requests **uncompressed paths** (`soffice.wasm`, `soffice.data`). 
 | Platform | Mechanism |
 |---|---|
 | **Next.js Dev** | Serves `soffice.wasm` from `public/` with `Content-Type: application/wasm` |
-| **Nginx (Docker)** | `gzip_static on` auto-detects `soffice.wasm.gz` alongside `soffice.wasm`, serves compressed version with `Content-Encoding: gzip` and correct `Content-Type: application/wasm` |
+| **Nginx** | `gzip_static on` auto-detects `soffice.wasm.gz` alongside `soffice.wasm`, serves compressed version with `Content-Encoding: gzip` and correct `Content-Type: application/wasm` |
 | **Vercel / Netlify** | Serves the decompressed `soffice.wasm` from `out/`, applies CDN-level compression |
 | **Cloudflare Pages** | Same as Vercel/Netlify, with `_headers` file for COOP/COEP |
 | **Apache** | `mod_deflate` compresses on-the-fly, `AddType application/wasm .wasm` sets MIME type |
@@ -602,7 +578,7 @@ The project includes:
 - **GitHub Actions workflow** (`.github/workflows/deploy.yml`) - Deploys to GitHub Pages
 - **Netlify configuration** (`netlify.toml`)
 - **Vercel configuration** (`vercel.json`)
-- **Docker Compose** (`docker-compose.yml`) + Nginx (`nginx.conf`)
+- **Nginx configuration** (`nginx.conf`) for self-hosted deployment
 
 Push to `main` branch to trigger automatic deployment.
 

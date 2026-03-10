@@ -74,6 +74,7 @@
       "confirm": "تأكيد",
       "add": "إضافة",
       "addFiles": "إضافة ملفات",
+      "support": "دعم",
       "clearResults": "مسح النتائج",
       "expand": "توسيع",
       "collapse": "طي"
@@ -374,11 +375,6 @@
         "title": "GitHub",
         "description": "أبلغ عن الأخطاء، أو اطلب ميزات، أو ساهم في المشروع.",
         "action": "عرض على GitHub"
-      },
-      "twitter": {
-        "title": "Twitter",
-        "description": "تابعنا للحصول على التحديثات والإعلانات.",
-        "action": "@pdfcraft"
       }
     },
     "form": {
